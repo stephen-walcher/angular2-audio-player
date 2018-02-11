@@ -1,0 +1,33 @@
+<section class="music-player-instruction hidden-lg hidden-md" *ngIf="song_loaded && display_message < 1">
+    <div class="container">
+        Apple prevents us from playing your song automatically.<br />Please click the play button to start your song.
+    </div>
+</section>
+<section class="music-player" *ngIf="song_loaded" #musicPlayer>
+    <div #playerContainer class="container">
+        <div class="play-pause" [class.playing]="playing" [class.stopped]="!playing" (click)="clickPlayPause()"></div>
+        <div class="title">
+            <span>{{ currently_playing.title }}</span>
+            <a href=""></a>
+        </div>
+        <div class="artist">{{ currently_playing.artist }}</div>
+        <div class="trackbar hidden-sm hidden-xs">
+            <div class="time-current">{{ currently_playing.current_time | time }}</div>
+            <timeline
+                [playheadPosition]="getPlayheadPosition()"
+                [timelineFill]="getTimelineFill()"
+                (onSeeking)="seekingTrack()"
+                (onSeek)="seekTrack($event)"
+            ></timeline>
+            <div class="time-total">{{ currently_playing.total_time | time }}</div>
+        </div>
+        <volume-control
+            class="visible-lg"
+            [muted]="muted"
+            [volume]="volume"
+            (onVolumeChange)="changeVolume($event)"
+            (onMuteClick)="clickMute()"
+        ></volume-control>
+        <div class="player-close" (click)="clickClose()"></div>
+    </div>
+</section>
