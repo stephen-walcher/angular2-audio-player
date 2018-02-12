@@ -1,5 +1,5 @@
 # Angular 4 Music Player
-*I'm working on getting this package out and published. The below is a basic template I found online that I think is a good README file. This package will be updated regularly until the NPM package is ready to publish.*
+*I'm working on getting this package out and published. This package will be updated regularly until the NPM package is ready to publish.*
 
 <!--
 **angular2-toaster** is an asynchronous, non-blocking, Ahead of Time Compilation-supported Angular Toaster Notification library
